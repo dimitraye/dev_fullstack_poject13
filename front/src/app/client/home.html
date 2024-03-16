@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat avec le service client</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../employee/home.css">
+</head>
+<body>
+  <!-- Barre de navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="#">Your Car Your Way</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Accueil</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">A propos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container mt-5">
+    <div class="row">
+      <!-- Colonne verticale sur la gauche -->
+      <div class="col-md-3">
+        <h3>Menu</h3>
+        <ul class="list-group">
+          <li class="list-group-item">Item 1</li>
+          <li class="list-group-item">Item 2</li>
+          <li class="list-group-item">Item 3</li>
+          <!-- Ajoutez d'autres éléments du menu ici -->
+        </ul>
+      </div>
+      
+      <div class="col-md-9">
+        <h2 class="mb-4">Chat avec le service client</h2>
+        <!-- Bouton pour ouvrir la modale de chat -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#chatModal">
+          Chat
+        </button>
+
+        <!-- Modale de chat -->
+
+
+        <div class="modal fade" id="chatModal" tabindex="-1" role="dialog" aria-labelledby="chatModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="chat">
+                <div class="chat-header clearfix">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <a href="javascript:void(0);" data-toggle="modal" data-target="#view_info">
+                                <img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="avatar">
+                            </a>
+                            <div class="chat-about">
+                                <h6 class="m-b-0">Aiden Chavez</h6>
+                                <small>Last seen: 2 hours ago</small>
+                            </div>
+                        </div>
+                       
+                    </div>
+                </div>
+                <div id="chat-messages" class="mb-3">
+                  <!-- Messages will be appended here -->
+                </div>
+                <div class="chat-message clearfix">
+                  <div class="input-group">
+                    <input type="text" id="message-input" class="form-control" placeholder="Entrez votre message...">
+                    <div class="input-group-append">
+                      <button class="btn btn-primary" type="button" id="send-btn">Envoyer</button>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            </div>
+          </div>
+        </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script>
+    // Function to send a message
+    function sendMessage() {
+      var message = $('#message-input').val();
+      if (message.trim() !== '') {
+        $('#chat-messages').append('<div class="alert alert-primary" role="alert">' + message + '</div>');
+        $('#message-input').val('');
+      }
+    }
+
+    // Event listener for send button click
+    $('#send-btn').click(sendMessage);
+
+    // Event listener for pressing Enter key
+    $('#message-input').keypress(function(event) {
+      if (event.which === 13) { // 13 is the Enter key code
+        sendMessage();
+      }
+    });
+  </script>
+</body>
+</html>
