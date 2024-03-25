@@ -1,0 +1,105 @@
+<!-- Div sous la barre de navigation -->
+<div class="container mt-5">
+  <!-- Div contenant les trois autres div -->
+  <div class="d-flex">
+
+      <!-- Première div avec une barre de navigation verticale -->
+      <div class="bg-light p-3">
+        <nav class="nav flex-column">
+          <a class="nav-link" href="#">Option 1</a>
+          <a class="nav-link" href="#">Option 2</a>
+          <a class="nav-link" href="#">Option 3</a>
+          <a class="nav-link" href="#">Option 4</a>
+          <a class="nav-link" href="#">Option 5</a>
+          <a class="nav-link" href="#">Option 6</a>
+        </nav>
+      </div>
+
+      <!-- Deuxième div avec un tableau d'articles -->
+      <div class="flex-fill text-center">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Article</th>
+                    <th>Description</th>
+                    <th>Prix</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Article 1</td>
+                    <td>Description 1</td>
+                    <td>10€</td>
+                </tr>
+                <tr>
+                    <td>Article 2</td>
+                    <td>Description 2</td>
+                    <td>20€</td>
+                </tr>
+                <tr>
+                    <td>Article 3</td>
+                    <td>Description 3</td>
+                    <td>30€</td>
+                </tr>
+            </tbody>
+        </table>
+      </div>
+    
+    <!-- Troisième div vide -->
+    <div class="flex-fill"></div>
+
+  </div>
+
+  <!-- Div en dessous de la div contenant les trois autres div -->
+
+</div>
+
+<div class="container mt-5">
+  <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-9 text-end">
+          <!-- Bouton pour ouvrir la modale de chat -->
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#chatModal">
+              Chat
+          </button>
+
+          <!-- Modale de chat -->
+          <div class="modal fade" id="chatModal" tabindex="-1" role="dialog" aria-labelledby="chatModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                      <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Chat avec le service client</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                          <!-- Ajoutez ici la fenêtre de chat -->
+                          <div class="chat">
+                              <div class="chat-header clearfix">
+                                  <div class="row">
+                                      <div class="col-lg-6">
+                                          <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#view_info">
+                                              <img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="avatar">
+                                          </a>
+                                          <div class="chat-about">
+                                              <h6 class="m-b-0">Aiden Chavez</h6>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div id="chat-messages" class="mb-3">
+                                  <!-- Messages seront ajoutés ici -->
+                              </div>
+                              <div class="chat-message clearfix">
+                                  <div class="input-group">
+                                      <input type="text" id="message-input" class="form-control" placeholder="Entrez votre message...">
+                                      <button class="btn btn-primary" type="button" id="send-btn">Envoyer</button>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
