@@ -25,6 +25,13 @@ public class MessageServiceImpl implements IMessageService{
     }
 
     @Override
+    public Message sendMessage(Message message, Integer senderId, Integer receiverId) {
+        message.setIdSender(senderId);
+        message.setIdReceiver(receiverId);
+        return save(message);
+    }
+
+    @Override
     public Optional<Message> findMessageById(Integer id) {
         // Rechercher le message par son ID dans la liste des messages
         return messages.stream()
