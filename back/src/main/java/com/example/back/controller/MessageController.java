@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+
 @RestController
 @RequestMapping("/api/messages")
 public class MessageController {
@@ -19,8 +20,8 @@ public class MessageController {
     }
 
     @PostMapping("/send")
-    public Message sendMessage(@RequestBody Message message) {
-        return messageService.save(message);
+    public Message sendMessage(@RequestBody Message message, @RequestParam("senderId") Integer senderId, @RequestParam("receiverId") Integer receiverId) {
+        return messageService.sendMessage(message, senderId, receiverId);
     }
 
     @GetMapping("/sender/{senderId}")

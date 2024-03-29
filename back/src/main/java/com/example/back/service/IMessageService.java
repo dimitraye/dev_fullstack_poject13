@@ -18,6 +18,8 @@ public interface IMessageService {
      */
     Message save(Message message);
 
+    Message sendMessage(Message message, Integer senderId, Integer receiverId);
+
     /**
      * Find a user by its Id
      * @param id
