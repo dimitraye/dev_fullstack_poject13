@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module'; // Importez votre fichi
 @NgModule({
   declarations: [
     // Déclarez vos composants ici une fois qu'ils sont créés
+    
   ],
   imports: [
     BrowserModule,

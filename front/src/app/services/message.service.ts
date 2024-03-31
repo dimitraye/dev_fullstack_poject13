@@ -29,4 +29,15 @@ export class MessageService {
     const url = `${this.baseUrl}/receiver/${receiverId}`;
     return this.http.get<Message[]>(url);
   }
+
+   // Méthode pour récupérer tous les messages
+   getAllMessages(): Observable<Message[]> {
+    return this.http.get<Message[]>(this.baseUrl);
+  }
+
+  // Méthode pour rechercher un message par son ID
+  getMessageById(id: number): Observable<Message> {
+    const url = `${this.baseUrl}/${id}`;
+    return this.http.get<Message>(url);
+  }
 }

@@ -82,15 +82,4 @@ public class MessageServiceImpl implements IMessageService{
         return messages;
     }
 
-    @Override
-    public String paramTojson(String paramIn) {
-        if (paramIn.startsWith("{")) {
-            log.info("Param already in Json format");
-            return paramIn;
-        }
-        paramIn = paramIn.replaceAll("=", "\":\"");
-        paramIn = paramIn.replaceAll("&", "\",\"");
-        return "{\"" + paramIn + "\"}";
-    }
-
 }
