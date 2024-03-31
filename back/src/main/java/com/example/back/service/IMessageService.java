@@ -51,13 +51,4 @@ public interface IMessageService {
      */
     List<Message> findAll();
 
-
-
-    /**
-     * Convert a parameter into a Json text
-     * @param paramIn
-     * @return Json text
-     */
-    String paramTojson(String paramIn);
-
 }

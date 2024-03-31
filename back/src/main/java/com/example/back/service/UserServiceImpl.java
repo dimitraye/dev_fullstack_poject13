@@ -4,7 +4,6 @@ package com.example.back.service;
 import com.example.back.model.User;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,17 +42,6 @@ public class UserServiceImpl implements IUserService{
     @Override
     public List<User> findByFirstnameAndLastname(String firstname, String lastname) {
         return null;
-    }
-
-    @Override
-    public String paramTojson(String paramIn) {
-        if (paramIn.startsWith("{")) {
-            log.info("Param already in Json format");
-            return paramIn;
-        }
-        paramIn = paramIn.replaceAll("=", "\":\"");
-        paramIn = paramIn.replaceAll("&", "\",\"");
-        return "{\"" + paramIn + "\"}";
     }
 
 
