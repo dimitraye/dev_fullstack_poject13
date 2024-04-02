@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 import { Message } from '../interfaces/message.interface';
 import { map } from 'rxjs/operators';
 
@@ -43,13 +43,41 @@ export class MessageService {
     return this.http.get<Message>(url);
   }
   */
+  myMessages: Message[] = [
+    {
+        id: 1,
+        idSender: 1,
+        idReceiver: 2,
+        content: "Bonjour ! Comment ça va ?",
+        creationDate: new Date("2024-03-22T08:00:00")
+    },
+    {
+        id: 2,
+        idSender: 2,
+        idReceiver: 1,
+        content: "Bonjour ! Ça va bien, merci ! Et vous ?",
+        creationDate: new Date("2024-03-22T08:05:00")
+    },
+    {
+        id: 3,
+        idSender: 1,
+        idReceiver: 2,
+        content: "Très bien aussi, merci !",
+        creationDate: new Date("2024-03-22T08:10:00")
+    }
+];
 
   private messages: Message[] = []; // Variable pour stocker les messages localement
 
-  constructor() { }
+  private messagesSubject: BehaviorSubject<Message[]> = new BehaviorSubject<Message[]>([]);
+  public messages$: Observable<Message[]> = this.messagesSubject.asObservable();
+
+  constructor() { 
+    this.messagesSubject.next(this.myMessages);
+  }
 
   // Méthode pour envoyer un message
-  sendMessage(message: Message, senderId: number, receiverId: number): Observable<Message> {
+  _sendMessage(message: Message, senderId: number, receiverId: number): Observable<Message> {
     console.log('Service -> sendMessage called');
 
     const newMessage: Message = {
@@ -66,6 +94,16 @@ export class MessageService {
 
     return of(newMessage); // Retourne un Observable avec le message envoyé
 
+  }
+
+  sendMessage(message: Message) {
+    const currentMessages = this.messagesSubject.value;
+    const updatedMessages = [...currentMessages, message];
+    this.messagesSubject.next(updatedMessages);
+  }
+
+  clearMessages() {
+    this.messagesSubject.next([]);
   }
 
   // Méthode pour récupérer les messages envoyés par un utilisateur

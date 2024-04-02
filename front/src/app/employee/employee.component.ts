@@ -3,12 +3,12 @@ import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-employee',
-  standalone: true,
-  imports: [],
   templateUrl: './employee.component.html',
   styleUrl: './employee.component.scss'
 })
 export class EmployeeComponent implements OnInit{
+
+  
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object) { }
   sendMessage() {

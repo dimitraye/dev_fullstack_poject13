@@ -1,23 +1,22 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http'; // Importez HttpClientModule
-import { AppRoutingModule } from './app-routing.module'; // Importez votre fichier d'itinéraire
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
 import { ClientComponent } from './client/client.component';
 import { EmployeeComponent } from './employee/employee.component';
 
-
 @NgModule({
   declarations: [
-    // Déclarez vos composants ici une fois qu'ils sont créés
+    AppComponent,
     ClientComponent,
     EmployeeComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule, // Ajoutez HttpClientModule ici
-    AppRoutingModule // Importez votre module d'itinéraire
+    AppRoutingModule
   ],
   providers: [],
-  bootstrap: [],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
